@@ -75,7 +75,7 @@ app.post("/api/login", async (req, res) => {
           status: "FAIL",
           message: "Incorrect password",
         });
-      }
+      } 
     } else {
       res.json({
         status: "FAIL",
