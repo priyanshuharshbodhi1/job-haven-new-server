@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 
 app.use(cors({
-  origin: "https://jobhaven.netlify.app",
+  origin: "https://job-haven-new-client.vercel.app",
   credentials: true,
 }));
 
@@ -47,7 +47,7 @@ app.post("/api/signup", async (req, res) => {
         recruiter: req.body.recruiter === "on" ,
       });
       await newUser.save();
-      res.redirect(302, "https://jobhaven.netlify.app");
+      res.redirect(302, "https://job-haven-new-client.vercel.app");
       console.log("User Created Successfully");
     }
   } catch (error) {
@@ -68,7 +68,7 @@ app.post("/api/login", async (req, res) => {
         });
         res.cookie("jwt", jwToken, { httpOnly: true });
         // console.log(jwToken);
-        res.redirect(302, "https://jobhaven.netlify.app/jobfinder");
+        res.redirect(302, "https://job-haven-new-client.vercel.app/jobfinder");
         return;
       } else {
         res.json({
